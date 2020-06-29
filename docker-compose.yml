@@ -1,0 +1,15 @@
+version: '3'
+
+services: 
+    pics:
+        restart: always
+        environment:
+            - CLIENTID=${CLIENTID}
+            - PROJECTID=${PROJECTID}
+            - CLIENTSECRET=${CLIENTSECRET}
+        build: .
+        ports: 
+            - "8080:8080"
+        volumes:
+            - .:/code
+        command: python ./app.py
